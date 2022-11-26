@@ -9,15 +9,23 @@ $("#submit").click(function(event){
 var city = $("#searchBar").val();
 
 //API Call - Current Weather Data
-var queryCurrentWeatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
-fetch(queryCurrentWeatherURL);
+var queryCurrentWeatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`;
+fetch(queryCurrentWeatherURL)
+.then(function(response){
+    response.json().then(function(data){
+        displayCurrentWeather(data,city);
+        });
+    });
+});
+
+var displayCurrentWeather 
 
 //API Call - Geocoder
 
 //API Call - 5-Day Forecast
 
 
-});
+
 
 
 
