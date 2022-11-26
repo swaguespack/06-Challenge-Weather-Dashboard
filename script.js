@@ -1,16 +1,24 @@
 //Variable to store API key
 var APIKey = "61575cadc8adff6b8ca0fdec73b15a2d";
 
-//Variables to store user input
-var city;
-var state;
-var country;
+//Search bar click action
+$("#submit").click(function(event){
+    event.preventDefault();
+
+//Read city from user input
+var city = $("#searchBar").val();
+
+//API Call - Current Weather Data
+var queryCurrentWeatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
+fetch(queryCurrentWeatherURL);
 
 //API Call - Geocoder
 
-//API Call - Current Weather Data
-var queryCurrentWeatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city, state, country + "&appid=" + APIKey;
-fetch(queryCurrentWeatherURL);
-
 //API Call - 5-Day Forecast
+
+
+});
+
+
+
 
