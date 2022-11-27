@@ -1,3 +1,9 @@
+//!!NEXT STEPS!! 
+//Create function for 5-day forecast
+//5-Day Forecast (create separate function *Call geocode API to find lat&lon)
+//Make local storage data persist display 
+
+
 
 //Global Variables
 var searchedCities = [];
@@ -7,22 +13,25 @@ var citySearchedInputEl = document.querySelector("#searched-city");
 //Variable to store API key
 var APIKey = "61575cadc8adff6b8ca0fdec73b15a2d";
 
-//Search bar click action
+//Search bar click action function - reads user input from search bar, calls currentCityWeatherFunction and saveSearch function
 $("#submit").click(function(event){
     event.preventDefault();
 
-//Read city from user input
 var city = $("#searchBar").val();
 if(city){
     currentCityWeather(city);
+    searchedCities.unshift({city});
+    
+}else{
+    alert("Please Enter City Name");
 }
-}
+saveSearch();
+});
 
-//!!NEXT STEPS!! 
-//End click function event by calling functions:
-//1 - saveSearch (create empty array to place searched cities **stringify user input & place in local storage)
-//2 - Current weather Data (turn into separate function)
-//3 - 5-Day Forecast (create separate function *Call geocode API to find lat&lon)
+//Function to save user input to local storage
+var saveSearch = function(){
+    localStorage.setItem("searchedCities",JSON.stringify(searchedCities));
+};
 
 //Function for Current Weather API Call
 var currentCityWeather = function(city){
