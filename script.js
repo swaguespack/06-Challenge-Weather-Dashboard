@@ -14,7 +14,7 @@ $("#submit").click(function(event){
 var city = $("#searchBar").val();
 
 //API Call - Current Weather Data
-var queryCurrentWeatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`;
+var queryCurrentWeatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIKey}`;
 fetch(queryCurrentWeatherURL)
 .then(function(response){
     response.json().then(function(data){
