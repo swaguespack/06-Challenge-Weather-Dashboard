@@ -1,5 +1,6 @@
 
 //Global Variables
+var searchedCities = [];
 var currentWeatherContainerEl=document.querySelector("#current-weather-container");
 var citySearchedInputEl = document.querySelector("#searched-city");
 
@@ -12,8 +13,19 @@ $("#submit").click(function(event){
 
 //Read city from user input
 var city = $("#searchBar").val();
+if(city){
+    currentCityWeather(city);
+}
+}
 
-//API Call - Current Weather Data
+//!!NEXT STEPS!! 
+//End click function event by calling functions:
+//1 - saveSearch (create empty array to place searched cities **stringify user input & place in local storage)
+//2 - Current weather Data (turn into separate function)
+//3 - 5-Day Forecast (create separate function *Call geocode API to find lat&lon)
+
+//Function for Current Weather API Call
+var currentCityWeather = function(city){
 var queryCurrentWeatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIKey}`;
 fetch(queryCurrentWeatherURL)
 .then(function(response){
@@ -21,7 +33,7 @@ fetch(queryCurrentWeatherURL)
         displayCurrentWeather(data,city);
         });
     });
-});
+};
 
 //Function for displaying current weather data for searched city inline at top of Weather Dashboard
 var displayCurrentWeather =function(weather,searchedCity){
