@@ -30,7 +30,7 @@ var displayCurrentWeather =function(weather,searchedCity){
 
 //Format date element and append to searched city
 var currentDate = document.createElement("SPAN");
-currentDate.textContent=" (" + moment(weather.dt.value).format("MMM D, YYYY") + ") ";
+currentDate.textContent=" (" + moment(weather.dt.value).subtract(10,'days').calendar() + ") ";
 citySearchedInputEl.appendChild(currentDate);
 
 //Create image element and append to searched city
@@ -52,8 +52,8 @@ windSpeedEl.textContent = "Wind Speed: " + weather.wind.speed + " MPH";
 
 //Append span elements holding data to container for searched city's current weather
 currentWeatherContainerEl.appendChild(temperatureEl);
-currentWeatherContainerEl.appendChild(humidityEl);
 currentWeatherContainerEl.appendChild(windSpeedEl);
+currentWeatherContainerEl.appendChild(humidityEl);
 
 };
 
