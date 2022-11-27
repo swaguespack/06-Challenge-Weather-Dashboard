@@ -1,7 +1,10 @@
 header{
     background: linear-gradient(to left, #6A82fB, #FC5C7D);
+    margin: 20px;
 }
 
 aside{
-    background-color: #6A82fB;
+    margin-left: 20px;
+    margin-right: 20px;
+    
 }

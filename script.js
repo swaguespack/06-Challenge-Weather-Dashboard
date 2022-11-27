@@ -35,7 +35,7 @@ citySearchedInputEl.appendChild(currentDate);
 
 //Create image element and append to searched city
 var weatherIcon = document.createElement("img");
-weatherIcon.setAttribute("src", `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`);
+weatherIcon.setAttribute("src", `https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`);
 citySearchedInputEl.appendChild(weatherIcon);
 
 //Create span element to hold Temperature data
