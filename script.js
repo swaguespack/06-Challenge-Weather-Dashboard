@@ -9,6 +9,8 @@
 var searchedCities = [];
 var currentWeatherContainerEl=document.querySelector("#current-weather-container");
 var citySearchedInputEl = document.querySelector("#searched-city");
+var searchHistoryEl;
+var searchHistoryButtonEl = document.querySelector("#search-history-button");
 
 //Variable to store API key
 var APIKey = "61575cadc8adff6b8ca0fdec73b15a2d";
@@ -26,11 +28,26 @@ if(city){
     alert("Please Enter City Name");
 }
 saveSearch();
+searchHistory(city);
+
 });
 
 //Function to save user input to local storage
 var saveSearch = function(){
     localStorage.setItem("searchedCities",JSON.stringify(searchedCities));
+};
+
+//Function to save user input as buttons
+var searchHistory = function(searchHistory){
+
+    searchHistoryEl = document.createElement("button");
+    searchHistoryEl.textContent = searchHistory;
+    searchHistoryEl.classList = "d-flex w-100 btn-light border p-2"
+    searchHistoryEl.setAttribute("data-city", searchHistory)
+    searchHistoryEl.setAttribute("type","submit");
+
+    searchHistoryButtonEl.prepend(searchHistory);
+
 };
 
 //Function for Current Weather API Call
@@ -77,6 +94,7 @@ currentWeatherContainerEl.appendChild(windSpeedEl);
 currentWeatherContainerEl.appendChild(humidityEl);
 
 };
+
 
 //API Call - Geocoder
 
