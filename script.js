@@ -51,7 +51,7 @@ var displayCurrentWeather =function(weather,searchedCity){
 
 //Format date element and append to searched city
 var currentDate = document.createElement("SPAN");
-currentDate.textContent=" (" + moment(weather.dt.value).subtract(10,'days').calendar() + ") ";
+currentDate.textContent=" (" + moment(weather.dt.value).format('L')+ ") ";
 citySearchedInputEl.appendChild(currentDate);
 
 //Create image element and append to searched city
