@@ -92,39 +92,25 @@ var windSpeedEl = document.createElement("SPAN");
 windSpeedEl.textContent = "Wind Speed: " + weather.wind.speed + " MPH";
 currentWeatherContainerEl.appendChild(windSpeedEl);
 
+getLatLon(lat,lon)
 
 };
 
 //API Call - Geocoder
-/*var currentCityCoord = function(city){
-    var queryCurrentCoordURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIKey}`;
-    fetch(queryCurrentCoordURL)
+var getLatLon = function(lat,lon){
+    var apiFiveDayURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}`
+    fetch(apiFiveDayURL)
     .then(function(response){
         response.json().then(function(data){
-            displayCurrentCoord(data,city);
-            });
-        });
-    };
-//Create a span element to hold Windspeed data
-var displayCurrentWeather =function(coord){
-var coordinatesEl = document.createElement("SPAN");
-coordinatesEl.textContent = "lat: " + coord.lat;
-currentWeatherContainerEl.appendChild(coordinatesEl);}
+            displayFiveDayForecast(data);
+        })
+    })
 
-/*cityGeocode = function(city){
-    var queryGeocodeURL = `https://api.openweathermap.org/data/1.0/direct?q=${city}&appid=${APIKey}`;
-    fetch(queryGeocodeURL)
-    .then(function(response){
-        response.json().then(function(data){
-            fiveDayForecast(data);
-            console.log(lat)
-            console.log(lon)
-            });
-        });
-    };*/
+}
+
 
 //API Call - 5-Day Forecast
-var fiveDayForecast = function(lat,lon){
+/*var fiveDayForecast = function(lat,lon){
     var query5DayForecastURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}`;
     fetch(query5DayForecastURL)
 .then(function(response){
@@ -133,7 +119,7 @@ var fiveDayForecast = function(lat,lon){
         
         });
     });
-};
+};*/
 
 //Function for displaying five-day forecast data for searched city
 var displayFiveDayForecast =function(weather){
