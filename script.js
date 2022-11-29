@@ -92,6 +92,7 @@ var windSpeedEl = document.createElement("SPAN");
 windSpeedEl.textContent = "Wind Speed: " + weather.wind.speed + " MPH";
 currentWeatherContainerEl.appendChild(windSpeedEl);
 
+//Select lat and lon needed for the 5-day forecast API call
 var lat = weather.coord.lat;
 var lon = weather.coord.lon;
 getLatLon(lat,lon)
@@ -108,8 +109,7 @@ var getLatLon = function(lat,lon){
         })
     })
 
-}
-
+};
 
 //Function for displaying five-day forecast data for searched city
 var displayFiveDayForecast =function(weather){
@@ -124,10 +124,10 @@ var displayFiveDayForecast =function(weather){
         forecastEl.classList = "card bg-secondary text-light m-2"
 
         //Date
-        /*var forecastDate = document.createElemenet("h5")
+        var forecastDate = document.createElement("H5")
         forecastDate.textContent= moment.unix(dailyForecast.dt).format("MMM D, YYYY");
         forecastDate.classList = "card-header text-center"
-        forecastEl.appendChild(forecastDate);*/
+        forecastEl.appendChild(forecastDate);
 
         //Icon
         var weatherIcon = document.createElement("img")
@@ -137,15 +137,23 @@ var displayFiveDayForecast =function(weather){
 
         //Temperature
         var forecastTempEl=document.createElement("SPAN");
-        forecastTempEl.classList = "card-body text-center";
-        forecastTempEl.textContent = dailyForecast.main.temp + " °F";
+        forecastTempEl.classList = "card-body text-left";
+        forecastTempEl.textContent = "Temp: " + dailyForecast.main.temp + " °F";
         forecastEl.appendChild(forecastTempEl);
+
+        //Wind
+        var forecastWindEl=document.createElement("SPAN");
+        forecastWindEl.classList="card-body text-left";
+        forecastWindEl.textContent = "Wind: "+dailyForecast.wind.speed + " MPH";
+        forecastEl.appendChild(forecastWindEl);
 
         //Humidity
         var forecastHumidityEl=document.createElement("SPAN");
-        forecastHumidityEl.classList="card-body text-center";
-        forecastHumidityEl.textContent = dailyForecast.main.humidity + " %";
+        forecastHumidityEl.classList="card-body text-left";
+        forecastHumidityEl.textContent = "Humidity: "+dailyForecast.main.humidity + " %";
         forecastEl.appendChild(forecastHumidityEl);
+
+
 
         forecastContainerEl.appendChild(forecastEl);
 
