@@ -46,7 +46,7 @@ var searchHistory = function(searchHistory){
     searchHistoryEl.setAttribute("data-city", searchHistory)
     searchHistoryEl.setAttribute("type","submit");
 
-    searchHistoryButtonEl.prepend(searchHistory);
+    searchHistoryButtonEl.prepend(searchHistoryEl);
 
 };
 
