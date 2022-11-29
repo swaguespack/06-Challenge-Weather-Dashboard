@@ -92,13 +92,15 @@ var windSpeedEl = document.createElement("SPAN");
 windSpeedEl.textContent = "Wind Speed: " + weather.wind.speed + " MPH";
 currentWeatherContainerEl.appendChild(windSpeedEl);
 
+var lat = weather.coord.lat;
+var lon = weather.coord.lon;
 getLatLon(lat,lon)
 
 };
 
-//API Call - Geocoder
+//API Call - Five-Day Forecast
 var getLatLon = function(lat,lon){
-    var apiFiveDayURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}`
+    var apiFiveDayURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`
     fetch(apiFiveDayURL)
     .then(function(response){
         response.json().then(function(data){
@@ -108,18 +110,6 @@ var getLatLon = function(lat,lon){
 
 }
 
-
-//API Call - 5-Day Forecast
-/*var fiveDayForecast = function(lat,lon){
-    var query5DayForecastURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}`;
-    fetch(query5DayForecastURL)
-.then(function(response){
-    response.json().then(function(data){
-        displayFiveDayForecast(data);
-        
-        });
-    });
-};*/
 
 //Function for displaying five-day forecast data for searched city
 var displayFiveDayForecast =function(weather){
@@ -134,10 +124,10 @@ var displayFiveDayForecast =function(weather){
         forecastEl.classList = "card bg-secondary text-light m-2"
 
         //Date
-        var forecastDate = document.createElemenet("h5")
+        /*var forecastDate = document.createElemenet("h5")
         forecastDate.textContent= moment.unix(dailyForecast.dt).format("MMM D, YYYY");
         forecastDate.classList = "card-header text-center"
-        forecastEl.appendChild(forecastDate);
+        forecastEl.appendChild(forecastDate);*/
 
         //Icon
         var weatherIcon = document.createElement("img")
