@@ -24,7 +24,7 @@ if(city){
     currentCityWeather(city);
     searchedCities.unshift({city});
     searchHistory(city);
-    fiveDayForecast(lat,lon)
+    
 }else{
     alert("Please Enter City Name");
 }
@@ -80,26 +80,48 @@ citySearchedInputEl.appendChild(weatherIcon);
 //Create span element to hold Temperature data
 var temperatureEl = document.createElement("SPAN");
 temperatureEl.textContent = "Temperature: " + weather.main.temp + " °F";
+currentWeatherContainerEl.appendChild(temperatureEl);
 
 //Create a span element to hold Humidity data
 var humidityEl = document.createElement("SPAN");
 humidityEl.textContent = "Humidity: " + weather.main.humidity + " %";
+currentWeatherContainerEl.appendChild(humidityEl);
 
 //Create a span element to hold Windspeed data
 var windSpeedEl = document.createElement("SPAN");
 windSpeedEl.textContent = "Wind Speed: " + weather.wind.speed + " MPH";
-
-//Append span elements holding data to container for searched city's current weather
-currentWeatherContainerEl.appendChild(temperatureEl);
 currentWeatherContainerEl.appendChild(windSpeedEl);
-currentWeatherContainerEl.appendChild(humidityEl);
 
-var lat = weather.coord.lat;
-var lon = weather.coord.lon;
-
-fiveDayForecast(lat,lon);
 
 };
+
+//API Call - Geocoder
+/*var currentCityCoord = function(city){
+    var queryCurrentCoordURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIKey}`;
+    fetch(queryCurrentCoordURL)
+    .then(function(response){
+        response.json().then(function(data){
+            displayCurrentCoord(data,city);
+            });
+        });
+    };
+//Create a span element to hold Windspeed data
+var displayCurrentWeather =function(coord){
+var coordinatesEl = document.createElement("SPAN");
+coordinatesEl.textContent = "lat: " + coord.lat;
+currentWeatherContainerEl.appendChild(coordinatesEl);}
+
+/*cityGeocode = function(city){
+    var queryGeocodeURL = `https://api.openweathermap.org/data/1.0/direct?q=${city}&appid=${APIKey}`;
+    fetch(queryGeocodeURL)
+    .then(function(response){
+        response.json().then(function(data){
+            fiveDayForecast(data);
+            console.log(lat)
+            console.log(lon)
+            });
+        });
+    };*/
 
 //API Call - 5-Day Forecast
 var fiveDayForecast = function(lat,lon){
@@ -111,8 +133,6 @@ var fiveDayForecast = function(lat,lon){
         
         });
     });
-console.log(lat);
-console.log(lon);
 };
 
 //Function for displaying five-day forecast data for searched city
