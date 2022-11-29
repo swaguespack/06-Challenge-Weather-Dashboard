@@ -42,7 +42,7 @@ var searchHistory = function(searchHistory){
 
     searchHistoryEl = document.createElement("button");
     searchHistoryEl.textContent = searchHistory;
-    searchHistoryEl.classList = "d-flex w-100 btn-light border rounded p-2 mb-3 mt-3"
+    searchHistoryEl.classList = "d-flex w-100 justify-content-center border rounded p-2 mb-3 mt-3"
     searchHistoryEl.setAttribute("data-city", searchHistory)
     searchHistoryEl.setAttribute("type","submit");
 
