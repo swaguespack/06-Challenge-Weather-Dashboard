@@ -1,8 +1,3 @@
-//!!NEXT STEPS!! 
-//format cards for 5-day forecast
-//format current weather display
-//Make local storage data persist display last searched
-
 //Global Variables
 var searchedCities = [];
 var currentWeatherContainerEl=document.querySelector("#current-weather-container");
