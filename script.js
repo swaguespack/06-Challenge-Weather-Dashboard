@@ -2,7 +2,6 @@
 //format cards for 5-day forecast
 //format current weather display
 //Make local storage data persist display last searched
-//Make search history buttons search the city it displays in text
 
 //Global Variables
 var searchedCities = [];
