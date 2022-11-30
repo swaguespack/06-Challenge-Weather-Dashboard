@@ -52,6 +52,17 @@ var searchHistory = function(searchHistory){
 
 };
 
+//Search history buttons re-search that city on click
+var searchHistoryHandler = function(event){
+    var city = event.target.getAttribute("data-city")
+    if(city){
+        currentCityWeather(city);
+
+    }
+};
+
+searchHistoryButtonEl.addEventListener("click",searchHistoryHandler);
+
 //Function for Current Weather API Call
 var currentCityWeather = function(city){
 var queryCurrentWeatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIKey}`;
