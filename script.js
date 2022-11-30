@@ -1,7 +1,8 @@
 //!!NEXT STEPS!! 
-//Create function for 5-day forecast
-//5-Day Forecast (create separate function *Call geocode API to find lat&lon)
-//Make local storage data persist display 
+//format cards for 5-day forecast
+//format current weather display
+//Make local storage data persist display last searched
+//Make search history buttons search the city it displays in text
 
 //Global Variables
 var searchedCities = [];
@@ -121,7 +122,7 @@ var displayFiveDayForecast =function(weather){
         var dailyForecast = forecast[i];
 
         var forecastEl=document.createElement("div");
-        forecastEl.classList = "card bg-secondary text-light m-2"
+        forecastEl.classList = "card bg-info text-light m-2"
 
         //Date
         var forecastDate = document.createElement("H5")
@@ -131,8 +132,8 @@ var displayFiveDayForecast =function(weather){
 
         //Icon
         var weatherIcon = document.createElement("img")
-        weatherIcon.classList = "card-body text-center";
-        weatherIcon.setAttribute("src",`https://openweathermap.org/img/wn/${dailyForecast.weather[0].icon}@2x.png`);
+        weatherIcon.classList = "card-body text-left";
+        weatherIcon.setAttribute("src",`https://openweathermap.org/img/wn/${dailyForecast.weather[0].icon}.png`);
         forecastEl.appendChild(weatherIcon);
 
         //Temperature
@@ -157,6 +158,6 @@ var displayFiveDayForecast =function(weather){
 
         forecastContainerEl.appendChild(forecastEl);
 
-    }
+    };
 
-}
+};
