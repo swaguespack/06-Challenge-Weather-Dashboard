@@ -27,21 +27,21 @@
             <aside class="col-12 col-md-3 p-2">
                 <form>
                     <h4>Search for a City:</h4>
-                    <input type="search" class = "form-control" id = "searchBar" placeholder="Search City"></input>
-                    <button class = "form-control mt-2 btn btn-primary" id = "submit" type="button">Search</button>
+                    <input id = "searchBar" class = "form-control" type="search" placeholder="Search City"></input>
+                    <button id = "submit" class = "form-control mt-2 btn btn-primary" type="button">Search</button>
                 </form>
                 <div id="search-history-button" ></div>
             </aside>
             <div class="col-12 col-md-8">
                 <div class="row border" >
-                    <div class ="col-12">
-                        <h4 id="searched-city"></h4>
-                        <div id="current-weather-container" class="list-group"></div>
+                    <div class ="col-12 p-2">
+                        <h2 id="searched-city"></h2>
+                        <div id="current-weather-container" class="p-2 list-group"></div>
                         </div>
                     </div>
                     <div class = "row border">
-                        <h2 class="col-12" id="forecast"></h2>
-                        <div class ="d-flex" id="forecast-container"></div>
+                        <h3 id="forecast" class="col-12 p-2"></h3>
+                        <div id="forecast-container" class ="col-sm-12 d-flex justify-content-center"></div>
                     </div>
 
                 </div>
