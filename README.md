@@ -16,4 +16,4 @@ The following image shows the Weather Dashboard appearance and functionality:
 
 ## Link
 
-https://swaguespack.github.io/06-Challenge-Weather-Dashboard/
+https://swaguespack.github.io/Shellbys-Weather-Dashboard/
